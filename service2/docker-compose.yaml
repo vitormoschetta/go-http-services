@@ -1,0 +1,18 @@
+version: '3'
+
+networks: 
+  mynet:      
+    driver: bridge
+    name: mynet
+
+services:
+  app:
+    container_name: app2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+    restart: "no"
+    networks:
+      - mynet
